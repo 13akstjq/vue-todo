@@ -27,10 +27,9 @@ export default {
   methods: {
     removeTodo(index, todo) {
       this.$store.commit("removeTodo", { index, todo });
-      // this.$emit("removeTodo", index, todo);
     },
     todoComplete(index, todo) {
-      this.$emit("todoComplete", index, todo);
+      this.$store.commit("todoComplete", { index, todo });
     }
   }
 };

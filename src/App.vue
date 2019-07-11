@@ -2,8 +2,8 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput></TodoInput>
-    <TodoList v-on:todoComplete="oneTodoComplete"></TodoList>
-    <TodoFooter v-on:removeAllTodo="removeAllTodo"></TodoFooter>
+    <TodoList></TodoList>
+    <TodoFooter></TodoFooter>
   </div>
 </template>
 
@@ -19,44 +19,6 @@ export default {
     TodoInput,
     TodoList,
     TodoFooter
-  },
-  data() {
-    return {
-      todoList: []
-    };
-  },
-  created() {
-    if (localStorage.length > 0) {
-      for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-          const obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-          this.todoList.push(obj);
-        }
-      }
-    }
-  },
-  methods: {
-    // addOneTodo(newTodo) {
-    //   if (newTodo != "") {
-    //     const obj = { completed: false, todo: newTodo };
-    //     localStorage.setItem(newTodo, JSON.stringify(obj));
-    //     this.todoList.push(obj);
-    //   }
-    //   return;
-    // },
-    oneTodoComplete(index, todo) {
-      todo.completed = !todo.completed;
-      localStorage.removeItem(todo.todo);
-      localStorage.setItem(todo.todo, JSON.stringify(todo));
-    },
-    removeAllTodo() {
-      localStorage.clear();
-      this.todoList = [];
-    }
-    // removeOneTodo(index, todo) {
-    //   localStorage.removeItem(todo.todo);
-    //   this.todoList.splice(index, 1);
-    // }
   }
 };
 </script>

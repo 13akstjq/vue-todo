@@ -20,7 +20,6 @@ export default {
     addInput() {
       if (this.inputValue != "") {
         this.$store.commit("addTodo", this.inputValue);
-        // this.$emit("addTodo", this.inputValue);
         this.clearInput();
       }
     },
