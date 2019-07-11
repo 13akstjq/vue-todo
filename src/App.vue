@@ -52,11 +52,11 @@ export default {
     removeAllTodo() {
       localStorage.clear();
       this.todoList = [];
-    },
-    removeOneTodo(index, todo) {
-      localStorage.removeItem(todo.todo);
-      this.todoList.splice(index, 1);
     }
+    // removeOneTodo(index, todo) {
+    //   localStorage.removeItem(todo.todo);
+    //   this.todoList.splice(index, 1);
+    // }
   }
 };
 </script>
